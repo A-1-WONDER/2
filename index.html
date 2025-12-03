@@ -4,43 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arix Signature Interactive Birthday Tree</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- 保留字体引用（正常生效，无需修改） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <!-- <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Lato"', 'sans-serif'],
-            },
-            colors: {
-              arix: {
-                pink: '#F8D9E0',
-                gold: '#D4AF37',
-                dark: '#1A1A1A'
-              }
-            }
-          }
-        }
-      }
-    </script> -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- 保留全局样式（已修复 text-size-adjust 兼容性警告） -->
     <style>
-      /* body { margin: 0; padding: 0; overflow: hidden; background-color: #050505; } */
-        body { 
-              margin: 0; 
-              padding: 0; 
-              overflow: hidden; 
-              background-color: #050505; 
-              -webkit-text-size-adjust: 100%;
-              text-size-adjust: 100%;
-              }
+      body { 
+        margin: 0; 
+        padding: 0; 
+        overflow: hidden; 
+        background-color: #050505; 
+        /* 只保留私有前缀，删除标准属性，消除兼容性警告 */
+        -webkit-text-size-adjust: none !important; /* Safari/Chrome 兼容 */
+        -moz-text-size-adjust: none !important;    /* Firefox 兼容 */
+        -ms-text-size-adjust: none !important;     /* IE/Edge 兼容 */
+      }
       #root { width: 100vw; height: 100vh; }
     </style>
-  <script type="importmap">
+    <!-- 保留 importmap（CDN 依赖引用，无需修改） -->
+    <script type="importmap">
 {
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
@@ -53,10 +36,11 @@
   }
 }
 </script>
-<!-- <link rel="stylesheet" href="/index.css"> -->
-</head>
+  </head>
   <body>
+    <!-- 保留根容器（React 挂载节点，必须有） -->
     <div id="root"></div>
-  <!-- <script type="module" src="/index.tsx"></script> -->
-</body>
+    <!-- 关键：删除所有手动写的 <script> 入口引用！Vite 会自动注入编译后的 JS 路径 -->
+    <!-- （之前的 <script type="module" src="/xxx/index.tsx"></script> 已彻底删除） -->
+  </body>
 </html>
