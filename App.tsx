@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber'; // 引入 3D 画布核心组件
+import { ambientLight, directionalLight } from '@react-three/drei'; // 引入光源组件
 import Scene from './components/Scene';
 import UIOverlay from './components/UIOverlay';
 import { TreeMorphState } from './types';
